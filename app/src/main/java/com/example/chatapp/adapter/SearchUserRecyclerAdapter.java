@@ -36,15 +36,7 @@ public class SearchUserRecyclerAdapter  extends FirestoreRecyclerAdapter<UserMod
         if(model.getUserId().equals(FirebaseUtil.currentUserId())){
             holder.usernameText.setText(model.getUsername()+" (Me)");
         }
-//
-//        FirebaseUtil.getOtherProfilePicStorageRef(model.getUserId()).getDownloadUrl()
-//                .addOnCompleteListener(t -> {
-//                    if(t.isSuccessful()){
-//                        Uri uri  = t.getResult();
-//                        AndroidUtil.setProfilePic(context,uri,holder.profilePic);
-//                    }
-//                });
-//
+
        holder.itemView.setOnClickListener(v -> {
               Intent intent = new Intent(context, ChatActivity.class);
             AndroidUtil.passUserModelAsIntent(intent,model);
